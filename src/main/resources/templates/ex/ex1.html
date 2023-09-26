@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<ul>
+  <li th:each="str, status: ${list}">
+<!--    <span th:text="${status.odd} ? 'ODD -&#45;&#45; ' + ${str}"></span>-->
+    <span th:text="${status.odd} ? 'ODD --- ' + ${str} : 'EVEN --- ' + ${str}"></span>
+  </li>
+</ul>
+
+<ul>
+  <th:block th:each="str: ${list}">
+    <li>[[${str}]]</li>
+  </th:block>
+</ul>
+</body>
+</html>
