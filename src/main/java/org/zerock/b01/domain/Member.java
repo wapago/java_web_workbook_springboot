@@ -2,10 +2,7 @@ package org.zerock.b01.domain;
 
 import lombok.*;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,7 +20,6 @@ public class Member extends BaseEntity {
     private String mpw;
     private String email;
     private boolean del;
-
     private boolean social;
 
     @ElementCollection(fetch = FetchType.LAZY)

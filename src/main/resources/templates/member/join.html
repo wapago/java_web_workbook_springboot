@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/basic.html}"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Member Join Page</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" th:href="@{assets/favicon.ico}" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<div layout:fragment="content">
+  <div class="row mt-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          JOIN
+        </div>
+        <div class="card-body">
+          <form id="registerForm" action="/member/join" method="post">
+            <div class="input-group mb-3">
+              <span class="input-group-text">MID</span>
+              <input class="form-control" name="mid" type="text">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">MPW</span>
+              <input class="form-control" name="mpw" type="password">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">EMAIL</span>
+              <input class="form-control" name="email" type="email">
+            </div>
+
+            <div class="my-4">
+              <div class="float-end">
+                <button class="btn btn-primary submitBtn" type="submit">Submit</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
+              </div>
+            </div>
+          </form><!-- 등록 form END -->
+        </div><!-- card body END -->
+      </div><!-- card END -->
+    </div><!-- col END -->
+  </div><!-- row END -->
+
+</div>
+<script layout:fragment="script" th:inline="javascript">
+  const error = [[${error}]]
+
+  if(error && error === 'mid') {
+    alert("동일한 MID를 가진 계정이 존재합니다.")
+  }
+</script>
+</html>
